@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import ListaFormCategorias from "./categorias/ListaFormCategorias";
+import Header from "./general/Header";
+import Tarjetas from "./general/Tarjetas";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App() {
+const App = () =>{
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>
+      <Header></Header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Tarjetas/>} exact></Route>
+          <Route path="/categorias" element={<ListaFormCategorias/>} exact></Route>
+        </Routes>
+      </BrowserRouter>
+    </div>    
   );
 }
 
