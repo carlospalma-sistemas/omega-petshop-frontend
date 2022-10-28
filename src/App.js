@@ -1,6 +1,7 @@
-import ListaFormCategorias from "./categorias/ListaFormCategorias";
-import Header from "./general/Header";
-import Tarjetas from "./general/Tarjetas";
+import ListaFormCategorias from "./componentes/categorias/ListaFormCategorias";
+import Header from "./componentes/general/Header";
+import Tarjetas from "./componentes/general/Tarjetas";
+import FormProducto from "./componentes/productos/FormProductos";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () =>{
@@ -11,6 +12,7 @@ const App = () =>{
         <Routes>
           <Route path="/" element={<Tarjetas/>} exact></Route>
           <Route path="/categorias" element={<ListaFormCategorias/>} exact></Route>
+          <Route path="/productos/form" element={<FormProducto/>} exact></Route>
         </Routes>
       </BrowserRouter>
     </div>    
