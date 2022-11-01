@@ -13,10 +13,14 @@ const categorias = [
     },
 ]
 
-const categoriaServicios = {};
+const CategoriaServicios = {};
 
-categoriaServicios.listarCategorias = () => {
-    return categorias;
+CategoriaServicios.listarCategorias = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject("Uy no, se despapayó");
+        }, 2000)
+    })
 }
 
-export default categoriaServicios;
+export default CategoriaServicios;

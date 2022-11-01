@@ -1,9 +1,33 @@
-import categoriaServicios from "../../servicios/categoriaServicios";
+import { useEffect } from "react";
+import { useState } from "react";
+import Estados from "../../enums/Estados";
+import CategoriaServicios from "../../servicios/CategoriaServicios";
 
 const ListaFormCategorias = () => {
-    const listaCategorias = categoriaServicios.listarCategorias();
-    console.log(listaCategorias);
 
+    const [ estado, setEstado ] = useState(Estados.CARGANDO);
+    const [ listaCategorias, setListacategorias ] = useState([]);
+
+    useEffect(() => {
+        const cargarDatos = async () => {
+            try {
+                const respuesta = await CategoriaServicios.listarCategorias();
+                if (respuesta.length > 0 ) {
+                    setListacategorias(respuesta);
+                    setEstado(Estados.OK);
+                    console.log(listaCategorias);
+                }
+                else {
+                    setEstado(Estados.VACIO);
+                }
+            } catch (error) {
+                setEstado(Estados.ERROR);
+                console.log(error);
+            }
+        }
+        cargarDatos();
+    }, [])
+    
     return (
         <div className="container">
             <h4 className="d-flex justify-content-center">Categorías de productos</h4>
@@ -19,6 +43,18 @@ const ListaFormCategorias = () => {
                     </thead>
                     <tbody>
                     {
+                        estado === Estados.ERROR ? (
+                            <tr><td>Ocurrió un error...</td></tr>
+                        ) 
+                        :
+                        estado === Estados.CARGANDO ? (
+                            <tr><td>Cargando...</td></tr>
+                        ) 
+                        :
+                        estado === Estados.VACIO ? (
+                            <tr><td>No hay datos</td></tr>
+                        )
+                        :
                         listaCategorias.map((categoria) => (
                             <tr key={categoria.id}>
                                 <td>{categoria.nombre}</td>

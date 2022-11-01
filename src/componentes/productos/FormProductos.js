@@ -1,7 +1,7 @@
-import categoriaServicios from "../../servicios/categoriaServicios";
+import CategoriaServicios from "../../servicios/CategoriaServicios";
 
 const FormProducto = () => {
-    const listaCategorias = categoriaServicios.listarCategorias();
+    const listaCategorias = CategoriaServicios.listarCategorias();
 
     return (
         <form className="container">
@@ -41,7 +41,8 @@ const FormProducto = () => {
             </div>
             <div>
                 <div className="mb-3 col-2">
-                    <button className="btn btn-success btn-sm me-2">Guardar</button>
+                    <a href="/productos" className="btn btn-success btn-sm me-2">Guardar</a>
+                    <a href="/productos" className="btn btn-light btn-sm me-2">Cancelar</a>
                 </div>
             </div>
         </form>
