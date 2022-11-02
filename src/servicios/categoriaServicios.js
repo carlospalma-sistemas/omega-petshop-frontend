@@ -1,26 +1,17 @@
-const categorias = [
-    {
-        id: 1,
-        nombre: "Alimentos para perros", 
-        activo: true,
-        imagen: "imagen.jpg"
-    },
-    {
-        id: 2,
-        nombre: "Alimentos para gatos", 
-        activo: false,
-        imagen: "otraimagen.jpg"
-    },
-]
+import axios from "axios";
 
 const CategoriaServicios = {};
 
 CategoriaServicios.listarCategorias = () => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            reject("Uy no, se despapayó");
-        }, 2000)
-    })
+    return axios.get("http://localhost:8000/api/categorias");
+}
+
+CategoriaServicios.buscarCategorias = (busqueda) => {
+    return axios.get("http://localhost:8000/api/categorias?q="+busqueda);
+}
+
+CategoriaServicios.guardarCategorias = (categoria) => {
+    return axios.post("http://localhost:8000/api/categorias", categoria);
 }
 
 export default CategoriaServicios;
