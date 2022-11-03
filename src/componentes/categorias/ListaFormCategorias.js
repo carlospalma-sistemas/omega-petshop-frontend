@@ -124,7 +124,7 @@ const ListaFormCategorias = () => {
                                 <td>{categoria.imagen}</td>
                                 <td>{categoria.activo ? "Sí" : "No"}</td>
                                 <td>
-                                    <button className="btn btn-sm btn-success">Editar</button>
+                                    <a href={"/categorias/form/"+categoria._id} className="btn btn-sm btn-success">Editar</a>
                                     <button className="btn btn-sm btn-danger">Eliminar</button>
                                 </td>
                             </tr>
