@@ -20,13 +20,7 @@ const FormEdicionCategoria = () => {
             }
             const respuesta = await CategoriaServicios.modificarCategoria(id, datosModificados);
             console.log(respuesta);
-            if (respuesta.status === 200) {
-                console.log("Enviando a ruta nueva");
-                navigateTo("/categorias");
-            }
-            else {
-                
-            }
+            navigateTo("/categorias");
         } catch (error) {
             
         }

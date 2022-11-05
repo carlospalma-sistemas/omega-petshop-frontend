@@ -4,7 +4,6 @@ import Tarjetas from "./componentes/general/Tarjetas";
 import FormProducto from "./componentes/productos/FormProductos";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ListaProductos from "./componentes/productos/ListaProductos";
-import Variables from "./componentes/general/Variables";
 import FormEdicionCategoria from "./componentes/categorias/FormEdicionCategoria";
 
 const App = () =>{
@@ -14,7 +13,6 @@ const App = () =>{
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Tarjetas/>} exact></Route>
-          <Route path="/variables" element={<Variables/>} exact></Route>
           <Route path="/categorias" element={<ListaFormCategorias/>} exact></Route>
           <Route path="/categorias/form/:id" element={<FormEdicionCategoria/>} exact></Route>
           <Route path="/productos" element={<ListaProductos/> } exact></Route>
